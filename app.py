@@ -273,7 +273,7 @@ def create_streamlit_app():
         st.header("System Settings")
         analysis_type = st.radio(
             "Analysis Type",
-            ["Predictive Analysis", "Detailed Analysis"],
+            ["Predictive Analysis", "Detailed Analysis (underdeveloped)"],
             index=0
         )
         if analysis_type == "Predictive Analysis":
