@@ -1,0 +1,24 @@
+name: Notify Discord
+
+on:
+  push:
+  issues:
+    types: [opened, closed, assigned]
+  pull_request:
+    types: [opened, closed, review_requested]
+
+jobs:
+  call-central-workflow:
+    # Point to your central repo
+    uses: Takamol-Real/testing-discord-webhook/.github/workflows/discord-router.yml@main
+    secrets:
+      # We must pass these explicitly since we can't use 'inherit' on private/free plans reliably
+      # if the keys aren't in the calling repo context (but now they are!)
+      DISCORD_WEBHOOK_AMGAD_UPDATES: ${{ secrets.DISCORD_WEBHOOK_AMGAD_UPDATES }}
+      DISCORD_WEBHOOK_LAMIAA_UPDATES: ${{ secrets.DISCORD_WEBHOOK_LAMIAA_UPDATES }}
+      DISCORD_WEBHOOK_MAGDI_UPDATES: ${{ secrets.DISCORD_WEBHOOK_MAGDI_UPDATES }}
+      DISCORD_WEBHOOK_MAHMOUD_ASHRAF_UPDATES: ${{ secrets.DISCORD_WEBHOOK_MAHMOUD_ASHRAF_UPDATES }}
+      DISCORD_WEBHOOK_MHALEL_UPDATES: ${{ secrets.DISCORD_WEBHOOK_MHALEL_UPDATES }}
+      DISCORD_WEBHOOK_MOAMEN_UPDATES: ${{ secrets.DISCORD_WEBHOOK_MOAMEN_UPDATES }}
+      DISCORD_WEBHOOK_YOUSOF_UPDATES: ${{ secrets.DISCORD_WEBHOOK_YOUSOF_UPDATES }}
+      DISCORD_WEBHOOK_ABUELNILE_UPDATES: ${{ secrets.DISCORD_WEBHOOK_ABUELNILE_UPDATES }}
